@@ -22,11 +22,12 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            justify-content: center;
         }
 
         .portfolio-card {
@@ -41,12 +42,18 @@
         }
 
         .hero-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 3rem;
             padding: 3rem;
             align-items: center;
+            justify-items: center;
+        }
+
+        .profile-image-container {
+            display: flex;
             justify-content: center;
+            align-items: center;
         }
 
         .profile-image {
@@ -65,7 +72,7 @@
 
         .profile-content {
             max-width: 500px;
-            text-align: center;
+            width: 100%;
         }
 
         .main-heading {
@@ -76,6 +83,8 @@
             background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
         }
 
         .subtitle {
@@ -83,56 +92,186 @@
             color: #667eea;
             margin-bottom: 1.5rem;
             letter-spacing: 1px;
+            text-align: center;
+            font-weight: 500;
         }
 
         .info-section {
             background: #f8fafc;
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: 15px;
             margin-bottom: 1.5rem;
             border-left: 4px solid #667eea;
-            text-align: left;
         }
 
         .info-item {
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .info-label {
             font-weight: 600;
             color: #4a5568;
+            min-width: 120px;
+        }
+
+        .info-value {
+            color: #2d3748;
         }
 
         .about-section {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 15px;
-            text-align: justify;
+            margin-bottom: 1.5rem;
         }
 
-        .button-container {
-            margin-top: 2rem;
+        .about-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .about-section p {
+            text-align: justify;
+            line-height: 1.7;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #764ba2, #667eea);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
             text-align: center;
         }
 
-        .slide-button {
-            background: #667eea;
+        .contact-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .contact-item h5 {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .contact-item p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .button-container {
+            text-align: center;
+            padding: 0 2rem 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .slide-button, .experience-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+            padding: 0.75rem 2rem;
+            border-radius: 25px;
             text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s ease;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
 
-        .slide-button:hover {
-            background: #556cd6;
+        .experience-button {
+            background: linear-gradient(135deg, #764ba2, #667eea);
         }
 
-        @media (max-width: 600px) {
+        .slide-button:hover, .experience-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Font Awesome CDN for icons */
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0.5rem;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem;
+                text-align: center;
+            }
+
             .main-heading {
                 font-size: 2rem;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.2rem;
+            }
+
+            .info-label {
+                min-width: auto;
+            }
+
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 1.5rem;
+            }
+
+            .main-heading {
+                font-size: 1.8rem;
             }
 
             .profile-image {
@@ -140,29 +279,60 @@
                 height: 180px;
             }
 
-            .hero-section {
-                padding: 2rem 1rem;
+            .info-section,
+            .about-section,
+            .contact-section {
+                padding: 1.2rem;
+            }
+
+            .contact-item {
+                padding: 1.2rem;
             }
         }
 
+        /* Large Screen Optimization */
+        @media (min-width: 1200px) {
+            .hero-section {
+                padding: 4rem;
+                gap: 4rem;
+            }
+
+            .profile-image {
+                width: 300px;
+                height: 300px;
+            }
+
+            .main-heading {
+                font-size: 3rem;
+            }
+        }
     </style>
 </head>
 <body>
-
     <div class="container">
         <div class="portfolio-card">
             <div class="hero-section">
-
-                <img src="/opeyemi.jpg" alt="Adebayo Opeyemi Modupe" class="profile-image">
-
+                <div class="profile-image-container">
+                    <img src="/opeyemi.jpg" alt="Adebayo Opeyemi Modupe" class="profile-image">
+                </div>
+                
                 <div class="profile-content">
                     <h1 class="main-heading">Adebayo Opeyemi Modupe</h1>
                     <p class="subtitle">Early Childhood Education Specialist</p>
-
+                    
                     <div class="info-section">
-                        <p class="info-item"><span class="info-label">🎓 Institution:</span> University of Ibadan</p>
-                        <p class="info-item"><span class="info-label">📚 Department:</span> Early Childhood Education and Foundation/Yoruba</p>
-                        <p class="info-item"><span class="info-label">🆔 Matric Number:</span> 242441</p>
+                        <div class="info-item">
+                            <span class="info-label">🎓 Institution:</span>
+                            <span class="info-value">University of Ibadan</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">📚 Department:</span>
+                            <span class="info-value">Early Childhood Education and Foundation/Yoruba</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">🆔 Matric Number:</span>
+                            <span class="info-value">242441</span>
+                        </div>
                     </div>
 
                     <div class="about-section">
@@ -172,15 +342,42 @@
                         </p>
                     </div>
 
-                    <div class="button-container">
-                        <a class="slide-button" href="YOUR_SLIDE_LINK_HERE" target="_blank">View My Slides</a>
+                    <div class="contact-section">
+                        <h3>Get In Touch</h3>
+                        <p>I would love to connect with fellow educators, researchers, and anyone interested in early childhood education and Yoruba cultural preservation.</p>
+                        
+                        <div class="contact-grid">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <h5>Email</h5>
+                                <p>adebayo.opeyemi@example.com</p>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <h5>Phone</h5>
+                                <p>+234 XXX XXX XXXX</p>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h5>Location</h5>
+                                <p>University of Ibadan, Nigeria</p>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
-
+            </div>
+            
+            <div class="button-container">
+                <a class="experience-button" href="experience.html">
+                    <i class="fas fa-graduation-cap"></i> View STE 353 Experience
+                </a>
+                <a class="slide-button" href="YOUR_SLIDE_LINK_HERE" target="_blank">
+                    <i class="fas fa-presentation"></i> View PowerPoint Presentation
+                </a>
             </div>
         </div>
     </div>
-
 </body>
 </html>

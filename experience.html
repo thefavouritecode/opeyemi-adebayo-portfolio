@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STE 353 Experience - Adebayo Opeyemi Modupe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .back-button {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .experience-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-text h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-text p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content-section {
+            padding: 3rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .experience-item {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item:nth-child(2) {
+            border-left-color: #764ba2;
+        }
+
+        .experience-item:nth-child(3) {
+            border-left-color: #f093fb;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .experience-item:hover::before {
+            opacity: 1;
+        }
+
+        .experience-item h3 {
+            color: #2d3748;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .experience-item .icon {
+            font-size: 1.8rem;
+            color: #667eea;
+        }
+
+        .experience-item:nth-child(2) .icon {
+            color: #764ba2;
+        }
+
+        .experience-item:nth-child(3) .icon {
+            color: #f093fb;
+        }
+
+        .experience-content {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .experience-content p {
+            margin-bottom: 1rem;
+        }
+
+        .experience-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        /* Font Awesome CDN for icons */
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .header-text h1 {
+                font-size: 2rem;
+            }
+
+            .header-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .content-section {
+                padding: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .experience-item {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-section {
+                padding: 2rem 1rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .experience-item {
+                padding: 1.2rem;
+            }
+
+            .header-text h1 {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Large Screen Optimization */
+        @media (min-width: 1200px) {
+            .header-section {
+                padding: 4rem;
+            }
+
+            .header-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .header-text h1 {
+                font-size: 3rem;
+            }
+
+            .experience-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Portfolio
+        </a>
+
+        <div class="experience-card">
+            <div class="header-section">
+                <div class="header-content">
+                    <img src="/opeyemi.jpg" alt="Adebayo Opeyemi Modupe" class="header-image">
+                    <div class="header-text">
+                        <h1>STE 353 Experience</h1>
+                        <p>Science, Technology & Education Journey</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <div class="section-title">
+                    <h2>My Academic Journey</h2>
+                    <p>Exploring the intersection of Science, Technology, and Education in Early Childhood Development</p>
+                </div>
+
+                <div class="experience-grid">
+                    <div class="experience-item">
+                        <h3>
+                            <span class="icon">📖</span>
+                            Course Details
+                        </h3>
+                        <div class="experience-content">
+                            <p><span class="highlight">STE 353</span> is a comprehensive course that focuses on integrating Science, Technology, and Education methodologies in early childhood settings.</p>
+                            
+                            <p>The course covered:</p>
+                            <ul>
+                                <li>Digital learning tools and educational software</li>
+                                <li>Innovative teaching methods for young learners</li>
+                                <li>Technology integration in early childhood education</li>
+                                <li>Assessment and evaluation techniques</li>
+                                <li>Child development theories and practical applications</li>
+                            </ul>
+                            
+                            <p>This course enhanced my understanding of how technology can be effectively used to support children's learning and development while maintaining the essential human connection in education.</p>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>
+                            <span class="icon">👨‍🏫</span>
+                            Course Instructor
+                        </h3>
+                        <div class="experience-content">
+                            <p>The course was expertly taught by <span class="highlight">Dr. [Instructor Name]</span>, a renowned expert in educational technology with over 15 years of experience in the field.</p>
+                            
+                            <p>Dr. [Name]'s teaching approach included:</p>
+                            <ul>
+                                <li>Interactive and practical learning sessions</li>
+                                <li>Real-world case studies and examples</li>
+                                <li>Hands-on activities with educational technology</li>
+                                <li>Collaborative group projects and discussions</li>
+                                <li>Personalized feedback and guidance</li>
+                            </ul>
+                            
+                            <p>Their expertise in both traditional education methods and modern technology integration made complex concepts accessible and applicable to our future careers in early childhood education.</p>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>
+                            <span class="icon">🤝</span>
+                            Support System
+                        </h3>
+                        <div class="experience-content">
+                            <p>Throughout the STE 353 course, I received tremendous support from various sources that contributed to my success:</p>
+                            
+                            <p><span class="highlight">Academic Support:</span></p>
+                            <ul>
+                                <li>Study group members who collaborated on projects</li>
+                                <li>Teaching assistants who provided additional guidance</li>
+                                <li>University library staff for research resources</li>
+                                <li>IT support team for technical assistance</li>
+                            </ul>
+                            
+                            <p><span class="highlight">Personal Support:</span></p>
+                            <ul>
+                                <li>Family members who encouraged my studies</li>
+                                <li>Friends who provided moral support</li>
+                                <li>Classmates who shared knowledge and experiences</li>
+                            </ul>
+                            
+                            <p>This strong support network was instrumental in helping me navigate the challenges and maximize the learning opportunities in this course.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
